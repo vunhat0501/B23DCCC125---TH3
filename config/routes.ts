@@ -36,6 +36,28 @@
 		component: './RandomUser',
 		icon: 'ArrowsAltOutlined',
 	},
+	{
+		name: 'Subject',
+		icons: 'BookOutlined',
+		path: '/subject',
+		routes: [
+			{
+				path: '/subject/mon-hoc',
+				name: 'Mon hoc',
+				component: './Subject/MonHoc',
+			},
+			{
+				path: '/subject/lich-hoc',
+				name: 'Lich hoc',
+				component: './Subject/LichHoc',
+			},
+			{
+				path: '/subject/muc-tieu',
+				name: 'Muc tieu',
+				component: './Subject/MucTieu',
+			},
+		],
+	},
 
 	// DANH MUC HE THONG
 	// {
