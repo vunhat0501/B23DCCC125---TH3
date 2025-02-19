@@ -37,6 +37,12 @@
 		icon: 'ArrowsAltOutlined',
 	},
 	{
+		path: '/GuessTheNumberGame',
+		name: 'Doanso',
+		component: './GuessTheNumberGame',
+		icon: 'AppstoreOutlined',
+	},
+	{
 		name: 'Subject',
 		icons: 'BookOutlined',
 		path: '/subject',
