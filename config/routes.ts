@@ -37,15 +37,15 @@
 		icon: 'ArrowsAltOutlined',
 	},
 	{
-		path: '/GuessTheNumberGame',
-		name: 'Doanso',
-		component: './GuessTheNumberGame',
+		path: '/RockPaperScissors',
+		name: 'Rock Paper Scissors',
+		component: './RockPaperScissors',
 		icon: 'AppstoreOutlined',
 	},
-	{
-		name: 'Subject',
-		icons: 'BookOutlined',
+	{		
 		path: '/subject',
+		name: 'Subject',
+		icon: 'CoffeeOutlined',
 		routes: [
 			{
 				path: '/subject/mon-hoc',
@@ -53,14 +53,14 @@
 				component: './Subject/MonHoc',
 			},
 			{
-				path: '/subject/lich-hoc',
-				name: 'Lich hoc',
-				component: './Subject/LichHoc',
+				path: '/subject/cau-hoi',
+				name: 'Cau hoi',
+				component: './Subject/CauHoi',
 			},
 			{
-				path: '/subject/muc-tieu',
-				name: 'Muc tieu',
-				component: './Subject/MucTieu',
+				path: '/subject/de-thi',
+				name: 'De thi',
+				component: './Subject/DeThi',
 			},
 		],
 	},

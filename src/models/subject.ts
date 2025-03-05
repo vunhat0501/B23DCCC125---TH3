@@ -1,56 +1,45 @@
-import { useEffect, useState } from 'react';
-import { getSubjects, saveSubjects } from '@/services/Subject';
+import { useState, useEffect } from "react";
+import { getSubjects, addSubject, editSubject, deleteSubject } from "@/services/Subject";
+import { Subject } from "@/services/Subject/typings";
 
 export default () => {
-	const [subjects, setSubjects] = useState<Subject.SubjectItem[]>([]);
+	const [subjects, setSubjects] = useState<Subject[]>([]);
 
-	// Load subjects from localStorage on component mount
-	useEffect(() => {
+	// Load subjects from localStorage
+	useEffect(() => {	
 		setSubjects(getSubjects());
-	}, []);
+	}
+	, []);
 
-	// Save subjects to localStorage whenever the subjects state changes
-	useEffect(() => {
-		saveSubjects(subjects);
-	}, [subjects]);
-
-	// Add a new subject
-	const addSubject = (
-		subject: string,
-		start_time: string,
-		end_time: string,
-		day: string,
-		content: string,
-		note: string,
-	) => {
-		const newSubject: Subject.SubjectItem = {
+	// addSubject
+	const handleAddSubject = (subjectId: string, name: string, credits: number, knowledgeBlocks: string[]) => {
+		const newSubject: Subject = {
 			id: Date.now().toString(),
-			subject,
-			start_time,
-			end_time,
-			day,
-			content,
-			note,
+			subjectId,
+			name,
+			credits,
+			knowledgeBlocks: knowledgeBlocks.map((name, index) => ({
+				id: `${Date.now()}-${index}`,
+				name,
+			})),
 		};
-		setSubjects((prevSubjects) => [...prevSubjects, newSubject]);
-	};
+		setSubjects(addSubject(newSubject));
+	}
 
-	// Edit an existing subject
-	const editSubject = (id: string, updatedSubject: Partial<Subject.SubjectItem>) => {
-		setSubjects((prevSubjects) =>
-			prevSubjects.map((subject) => (subject.id === id ? { ...subject, ...updatedSubject } : subject)),
-		);
-	};
+	// editSubject
+	const handleEditSubject = (id: string, updatedSubject: Partial<Subject>) => {
+		setSubjects(editSubject(id, updatedSubject));
+	}
 
-	// Delete a subject
-	const deleteSubject = (id: string) => {
-		setSubjects((prevSubjects) => prevSubjects.filter((subject) => subject.id !== id));
-	};
+	// deleteSubject
+	const handleDeleteSubject = (id: string) => {	
+		setSubjects(deleteSubject(id));
+	}
 
 	return {
 		subjects,
-		addSubject,
-		editSubject,
-		deleteSubject,
+		handleAddSubject,
+		handleEditSubject,
+		handleDeleteSubject,
 	};
 };
