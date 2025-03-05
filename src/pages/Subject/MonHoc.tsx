@@ -58,7 +58,7 @@ const MonHoc = () => {
 			key: 'knowledgeBlocks',
 			render: (knowledgeBlocks: any) => {
 				try {
-					// Case 1: If knowledgeBlocks is a valid array, use it directly
+					// TH 1: Nếu knowledgeBlocks là mảng, map thẳng ra
 					if (Array.isArray(knowledgeBlocks)) {
 						return knowledgeBlocks.map((block) => (
 							<Tag key={block.id} color='blue'>
@@ -67,12 +67,14 @@ const MonHoc = () => {
 						));
 					}
 
-					// Case 2: If knowledgeBlocks is a string, attempt to parse it
+					// TH 2: Nếu knowledgeBlocks là chuỗi, split chuỗi ra thành mảng rồi map
 					if (typeof knowledgeBlocks === 'string') {
 						const parsedBlocks = knowledgeBlocks.split(',').map((name, index) => ({
-							id: `kb_${index}`,
-							name: name.trim(),
+							id: `kb_${index}`, // Tạo id tạm thời
+							name: name.trim(), // Xóa khoảng trắng ở đầu và cuối (nếu có)
 						}));
+
+						// Render các khối kiến thức dưới dạng Tag
 						return parsedBlocks.map((block) => (
 							<Tag key={block.id} color='blue'>
 								{block.name}
@@ -83,7 +85,7 @@ const MonHoc = () => {
 					console.error('Error processing knowledgeBlocks:', error);
 				}
 
-				// Default case (invalid data)
+				// Trong trường hợp dữ liệu không hợp lệ, hiển thị Tag màu đỏ
 				return <Tag color='red'>Invalid Data</Tag>;
 			},
 		},
