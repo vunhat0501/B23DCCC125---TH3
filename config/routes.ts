@@ -1,4 +1,7 @@
-﻿export default [
+﻿import component from "@/locales/en-US/component";
+import path from "path";
+
+export default [
 	{
 		path: '/user',
 		layout: false,
@@ -37,30 +40,40 @@
 		icon: 'ArrowsAltOutlined',
 	},
 	{
-		path: '/RockPaperScissors',
-		name: 'Rock Paper Scissors',
-		component: './RockPaperScissors',
-		icon: 'AppstoreOutlined',
+		path: '/khach-hang',
+		name: 'Khach Hang',
+		icon: 'UserOutlined',
+		component: './KhachHang/DatLich',
 	},
 	{		
-		path: '/subject',
-		name: 'Subject',
-		icon: 'CoffeeOutlined',
+		path: '/admin',
+		name: 'Admin',
+		icon: 'SolutionOutlined',
 		routes: [
 			{
-				path: '/subject/mon-hoc',
-				name: 'Mon hoc',
-				component: './Subject/MonHoc',
+				path: '/admin/nhan-vien',
+				name: 'Nhan Vien',
+				component: './Admin/NhanVien',
 			},
 			{
-				path: '/subject/cau-hoi',
-				name: 'Cau hoi',
-				component: './Subject/CauHoi',
+				path: '/admin/dich-vu',
+				name: 'Dich Vu',
+				component: './Admin/DichVu',
 			},
 			{
-				path: '/subject/de-thi',
-				name: 'De thi',
-				component: './Subject/DeThi',
+				path: '/admin/lich-hen',
+				name: 'Lich Hen',
+				component: './Admin/LichHen',
+			},
+			{
+				path: '/admin/rating',
+				name: 'Rating',
+				component: './Admin/Rating',
+			},
+			{
+				path: '/admin/thong-ke',
+				name: 'Thong Ke',
+				component: './Admin/ThongKe',
 			},
 		],
 	},
