@@ -1,5 +1,5 @@
-﻿import component from "@/locales/en-US/component";
-import path from "path";
+﻿import component from '@/locales/en-US/component';
+import path from 'path';
 
 export default [
 	{
@@ -45,7 +45,7 @@ export default [
 		icon: 'UserOutlined',
 		component: './KhachHang/DatLich',
 	},
-	{		
+	{
 		path: '/admin',
 		name: 'Admin',
 		icon: 'SolutionOutlined',
@@ -74,6 +74,11 @@ export default [
 				path: '/admin/thong-ke',
 				name: 'Thong Ke',
 				component: './Admin/ThongKe',
+			},
+			{
+				path: '/admin/thu-nhap',
+				name: 'Thu Nhap',
+				component: './Admin/ThuNhap',
 			},
 		],
 	},
